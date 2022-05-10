@@ -15,20 +15,28 @@ const LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
   'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф',
   'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ъ', 'Ы', 'Э', 'Ю', 'Я'];
 
-const TEXT_AREA = document.querySelector('body > div > textarea');
-TEXT_AREA.id = 'txt-field';
-
 const createDoc = () => {
   document.onkeydown = () => false;
 
   const wrapper = document.createElement('div');
   wrapper.classList.add('wrapper');
   document.body.append(wrapper);
+  const title = document.createElement('h1');
+  title.innerText = 'RSS Виртуальная клавиатура';
+  document.querySelector('body > div.wrapper').append(title);
   const input = document.createElement('textarea');
   input.classList.add('input');
+  input.id = 'txt-field';
   document.querySelector('body > div.wrapper').append(input);
   new KeyBoard(language, 0);
+  const description = document.createElement('p');
+  description.innerText = 'Для переключения языка комбинация: ctrlLeft + altLeft';
+  document.querySelector('body > div.wrapper').append(description);
 };
+
+createDoc();
+
+const TEXT_AREA = document.querySelector('body > div > textarea');
 
 const makeBoard = (lang, upperCase) => {
   document.querySelector('#keyboard').remove();
@@ -199,6 +207,5 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
-createDoc();
 makeBoard(language, 0);
 changeLangOnKeyboard();

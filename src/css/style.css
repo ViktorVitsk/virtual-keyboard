@@ -1,18 +1,18 @@
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
 }
+
 .input {
   margin: 0 auto;
   width: 700px;
   height: 200px;
-
 }
 
 h1 {
@@ -25,14 +25,15 @@ p {
   margin: 50px auto 0;
 }
 
-#keyboard{
+#keyboard {
   display: flex;
   flex-wrap: wrap;
   height: 250px;
   width: 700px;
-  margin: 3% auto ;
+  margin: 3% auto;
   justify-content: space-between;
 }
+
 .standard, .optional {
   height: 40px;
   width: 40px;
@@ -41,46 +42,60 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  user-select: none;
-  &:hover {
-    background:rgba(6, 19, 61, 0.6);
-    cursor: pointer;
-  }
-  &:active {
-    border-radius: 50%;
-    background: rgb(70, 131, 46);
-  }
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
+.standard:hover, .optional:hover {
+  background: rgba(6, 19, 61, 0.6);
+  cursor: pointer;
+}
+.standard:active, .optional:active {
+  border-radius: 50%;
+  background: rgb(70, 131, 46);
+}
+
 .standard {
   background: rgba(102, 174, 221, 0.7);
 }
-.optional{
+
+.optional {
   background: rgba(8, 50, 187, 0.6);
 }
+
 #Backspace {
   width: 100px;
 }
-#Delete{
+
+#Delete {
   width: 44px;
 }
-#Tab{
+
+#Tab {
   width: 50px;
 }
+
 #CapsLock {
   width: 100px;
 }
+
 #ShiftLeft {
   width: 100px;
 }
+
 #Enter {
   width: 85px;
 }
-#ShiftRight{
+
+#ShiftRight {
   width: 85px;
 }
-#Space{
+
+#Space {
   width: 330px;
 }
+
 #Lang {
   background: rgba(8, 50, 187, 0.6);
-}
+}/*# sourceMappingURL=style.css.map */
