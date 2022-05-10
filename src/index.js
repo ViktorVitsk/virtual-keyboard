@@ -160,8 +160,10 @@ const shiftDown = (target) => {
     makeBoard(language, 1);
     if (target.getAttribute('code') === 'ShiftRight') {
       document.querySelector('#ShiftRight').style.opacity = '0.5';
+      document.querySelector('#ShiftRight').style.borderRadius = '10px';
     } else {
       document.querySelector('#ShiftLeft').style.opacity = '0.5';
+      document.querySelector('#ShiftLeft').style.borderRadius = '10px';
     }
   }
 };
