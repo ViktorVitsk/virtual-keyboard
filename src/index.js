@@ -42,10 +42,10 @@ const makeBoard = (lang, upperCase) => {
   document.querySelector('#keyboard').remove();
   new KeyBoard(lang, upperCase);
 };
+makeBoard(language, 0);
 
 const changeLangOnKeyboard = () => {
   const keysDown = new Set();
-
   document.addEventListener('keydown', (event) => {
     keysDown.add(event.code);
     const keysForChange = ['AltLeft', 'ControlLeft'];
@@ -59,9 +59,12 @@ const changeLangOnKeyboard = () => {
     localStorage.setItem('lang_saved', language);
     makeBoard(language, 0);
     capsLock = false;
+  });
+  document.addEventListener('keyup', (event) => {
     keysDown.delete(event.code);
   });
 };
+changeLangOnKeyboard();
 
 const textIn = (letter) => {
   const scrollPosition = TEXT_AREA.scrollTop;
@@ -195,6 +198,7 @@ document.addEventListener('keydown', (event) => {
   if (button) {
     print(button);
     button.style.opacity = '0.5';
+    // button.style.backgroundColor = '#c4faf641';
     shiftDown(button);
   }
 });
@@ -204,8 +208,6 @@ document.addEventListener('keyup', (event) => {
   if (button) {
     shiftUp(button);
     button.style.opacity = '';
+    button.style.backgroundColor = '#fff';
   }
 });
-
-makeBoard(language, 0);
-changeLangOnKeyboard();
