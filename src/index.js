@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-new */
 // eslint-disable-next-line import/extensions
 import KeyBoard from './js/keyBoard.js';
 
@@ -28,7 +26,8 @@ const createDoc = () => {
   input.classList.add('input');
   input.id = 'txt-field';
   document.querySelector('body > div.wrapper').append(input);
-  new KeyBoard(language, 0);
+  const getBoard = () => new KeyBoard(language, 0);
+  getBoard();
   const description = document.createElement('p');
   description.innerText = 'Для переключения языка комбинация: ctrlLeft + altLeft';
   document.querySelector('body > div.wrapper').append(description);
@@ -40,7 +39,8 @@ const TEXT_AREA = document.querySelector('body > div > textarea');
 
 const makeBoard = (lang, upperCase) => {
   document.querySelector('#keyboard').remove();
-  new KeyBoard(lang, upperCase);
+  const getBoard = () => new KeyBoard(language, upperCase);
+  getBoard();
 };
 makeBoard(language, 0);
 
@@ -49,8 +49,8 @@ const changeLangOnKeyboard = () => {
   document.addEventListener('keydown', (event) => {
     keysDown.add(event.code);
     const keysForChange = ['AltLeft', 'ControlLeft'];
-    for (const code of keysForChange) {
-      if (!keysDown.has(code)) {
+    for (let i = 0; i < keysForChange.length; i += 1) {
+      if (!keysDown.has(keysForChange[i])) {
         return;
       }
     }
@@ -82,7 +82,8 @@ const textIn = (letter) => {
 
 const changeCase = (capsL) => {
   const elements = document.getElementsByClassName('standard');
-  for (const element of elements) {
+  for (let i = 0; i < elements.length; i += 1) {
+    const element = elements[i];
     const currentContent = element.textContent;
     if (LETTERS.includes(currentContent)) {
       const value = capsL ? currentContent.toUpperCase() : currentContent.toLowerCase();
@@ -118,7 +119,6 @@ const print = (target) => {
     }
   }
   if (target.className === 'optional') {
-    // eslint-disable-next-line default-case
     switch (target.getAttribute('code')) {
       case 'Tab':
         textIn('\t');
@@ -141,6 +141,8 @@ const print = (target) => {
       case 'ArrowDown':
       case 'ArrowLeft':
         textIn(target.textContent);
+        break;
+      default:
         break;
     }
   }
@@ -170,8 +172,7 @@ const shiftDown = (target) => {
 
 function getButton(buttonDown) {
   const allButton = document.querySelector('#keyboard').childNodes;
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < allButton.length; i++) {
+  for (let i = 0; i < allButton.length; i += 1) {
     const element = allButton[i];
     if (element.getAttribute('code') === buttonDown) {
       return element;
