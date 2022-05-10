@@ -51,7 +51,8 @@ p {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.standard, .optional {
+.standard,
+.optional {
   background: #fff;
   height: 40px;
   width: 40px;
@@ -61,33 +62,40 @@ p {
   justify-content: center;
   align-items: center;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   border: none;
   border-radius: 0.3em;
-  box-shadow: inset 0 0 1px rgb(150, 150, 150), inset 0 -0.05em 0.4em rgb(80, 80, 80), 0 0.1em 0 rgb(30, 30, 30), 0 0.1em 0.1em rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 1px rgb(150, 150, 150),
+    inset 0 -0.05em 0.4em rgb(80, 80, 80), 0 0.1em 0 rgb(30, 30, 30),
+    0 0.1em 0.1em rgba(0, 0, 0, 0.3);
   text-shadow: 0 0 2px rgb(255, 255, 255);
   color: rgb(50, 50, 50);
 }
-.standard:hover, .optional:hover {
+.standard:hover,
+.optional:hover {
   background: rgba(150, 150, 150, 0.6);
   cursor: pointer;
 }
-.standard:active, .optional:active {
+.standard:active,
+.optional:active {
   border-radius: 10px;
 }
 
-.optional, #Lang {
+.optional,
+#Lang {
   font-size: 1.3em;
   background: rgb(250, 250, 250);
   text-shadow: -1px -1px 0 rgba(70, 70, 70, 0.473);
 }
-.optional:hover, #Lang:hover {
+.optional:hover,
+#Lang:hover {
   background: rgba(150, 150, 150, 0.6);
   cursor: pointer;
 }
-.optional:active, #Lang:active {
+.optional:active,
+#Lang:active {
   border-radius: 10px;
 }
 
@@ -121,4 +129,4 @@ p {
 
 #Space {
   width: 330px;
-}/*# sourceMappingURL=style.css.map */
+}

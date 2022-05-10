@@ -198,7 +198,6 @@ document.addEventListener('keydown', (event) => {
   if (button) {
     print(button);
     button.style.opacity = '0.5';
-    // button.style.backgroundColor = '#c4faf641';
     shiftDown(button);
   }
 });
@@ -208,6 +207,5 @@ document.addEventListener('keyup', (event) => {
   if (button) {
     shiftUp(button);
     button.style.opacity = '';
-    button.style.backgroundColor = '#fff';
   }
 });
